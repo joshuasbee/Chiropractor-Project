@@ -2,7 +2,7 @@ from flask import Flask, request, redirect, url_for, render_template
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 from datetime import datetime
-
+from waitress import serve # For production server
 app = Flask(__name__)
 
 # Google Sheets setup
@@ -28,4 +28,6 @@ def checkin():
     return redirect(url_for('index'))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # app.run(debug=True)
+# to run the Production server, use 'python myapp.py' command
+    serve(app, host='0.0.0.0', port=8080)
