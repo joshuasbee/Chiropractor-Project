@@ -58,5 +58,7 @@ class ServerControlApp:
 
 if __name__ == "__main__":
     root = tk.Tk()
+    # root.geometry defines window as 300 wide x 200 tall opening at x=800 and y = 300
+    root.geometry("300x200+800+300")
     app = ServerControlApp(root)
     root.mainloop()
