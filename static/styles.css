@@ -1,15 +1,38 @@
-html, body {
-    height: 100%;
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px; 
     margin: 0;
 }
 
-.wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px; /* Space between the image and the heading */
 }
 
-.centered {
+h1 {
     text-align: center;
+    margin: 20px 0;
+    flex-grow: 1;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    flex-grow: 2; /* Pushes the form down */
+}
+
+input, button {
+    margin: 5px;
+    padding: 10px;
+    width: 400px;
+}
+
+label {
+    font-size: 1.6em; /* Scales font size 1.6x larger than default */
+    color: black
 }
