@@ -1,0 +1,140 @@
+body {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    padding-top: 50px; 
+
+    margin: 0;
+
+}
+
+
+
+img {
+
+    max-width: 100%;
+
+    height: auto;
+
+    margin-bottom: 20px; /* Space between the image and the heading */
+
+}
+
+
+
+h1 {
+
+    text-align: center;
+
+    margin: 20px 0;
+
+    flex-grow: 1;
+
+}
+
+
+
+form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    margin-top: 20px;
+
+    flex-grow: 2; /* Pushes the form down */
+
+}
+
+
+
+input, button {
+
+    margin: 5px;
+
+    padding: 10px;
+
+    width: 400px;
+
+}
+
+
+
+label {
+
+    font-size: 1.6em; /* Scales font size 1.6x larger than default */
+
+    color: black
+
+}
+
+
+
+/* New / Returning patient selector */
+
+.patient-type {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    margin-top: 15px;
+
+}
+
+
+
+.patient-type-title {
+
+    font-size: 1.6em;
+
+    color: black;
+
+}
+
+
+
+.patient-type-options {
+
+    display: flex;
+
+    gap: 30px;
+
+    margin-top: 10px;
+
+}
+
+
+
+/* Undo the 400px width the generic input rule would give radio buttons */
+
+input[type="radio"] {
+
+    width: auto;
+
+    margin: 0 8px 0 0;
+
+    padding: 0;
+
+    transform: scale(1.6);
+
+}
+
+
+
+.patient-type-label {
+
+    font-size: 1.3em;
+
+    margin: 0 10px 0 0;
+
+}
+
