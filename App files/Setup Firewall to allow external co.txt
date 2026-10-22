@@ -1,0 +1,14 @@
+Setup Firewall to allow external connections
+Open Windows Defender Firewall.
+Click Advanced Settings.
+Select Inbound Rules and create a new rule to allow port 8080.
+
+
+
+Type ipconfig and find the ipv4 address on PC running the server. 
+
+
+
+type that ipv4 address (0.0.0.0 for example) then :8080. 
+
+0.0.0.0:8080 would take you to the website for the checkin. 
