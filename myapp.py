@@ -33,7 +33,10 @@ NEW_PATIENT_COLOR = {"red": 1.0, "green": 0.95, "blue": 0.4}
 @app.route("/")
 def index():
 
-    return render_template("index.html")
+    # checked_in=1 is added by the redirect after a successful check-in
+    checked_in = request.args.get("checked_in") == "1"
+
+    return render_template("index.html", checked_in=checked_in)
 
 
 @app.route("/checkin", methods=["POST"])
@@ -47,8 +50,7 @@ def checkin():
 
         patient_type = ""
 
-    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
+    timestamp = datetime.now().strftime("%A, %B %d, %Y %I:%M:%S %p")
     # Append the name, timestamp and patient type to the Google Sheet
 
     # Columns: A = Name, B = Check-In Time, C = Patient Type
@@ -67,7 +69,16 @@ def checkin():
 
             row = int(re.search(r"(\d+)(?!.*\d)", updated_range).group(1))
 
-            sheet.format(f"C{row}", {"backgroundColor": NEW_PATIENT_COLOR})
+            sheet.format(f"C{row}", {
+                "textFormat": {
+                    "foregroundColor": {
+                        "red": 1.0,
+                        "green": 0.0,
+                        "blue": 0.0
+                        },
+                        "bold": True
+                        }
+})
 
         except Exception as e:
 
@@ -75,7 +86,7 @@ def checkin():
 
             print(f"Could not highlight new patient cell: {e}")
 
-    return redirect(url_for("index"))
+    return redirect(url_for("index", checked_in=1))
 
 
 if __name__ == "__main__":
